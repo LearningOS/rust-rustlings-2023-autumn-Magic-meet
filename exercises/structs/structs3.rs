@@ -7,11 +7,11 @@
 // Execute `rustlings hint structs3` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
+
 
 #[derive(Debug)]
 struct Package {
-    sender_country: String,
+    sender_country: String, 
     recipient_country: String,
     weight_in_grams: i32,
 }
@@ -29,12 +29,19 @@ impl Package {
         }
     }
 
-    fn is_international(&self) -> ??? {
-        // Something goes here...
+    fn is_international(&self) -> bool{
+        if self.sender_country != String::from("Canada") && self.recipient_country != String::from("Canada")
+        {
+            true
+        }
+        else
+        {
+            false
+        }
     }
 
-    fn get_fees(&self, cents_per_gram: i32) -> ??? {
-        // Something goes here...
+    fn get_fees(&self, cents_per_gram: i32) -> i32 {
+            cents_per_gram * self.weight_in_grams
     }
 }
 
